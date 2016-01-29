@@ -5,13 +5,13 @@ java 世界里一些比较有意思的代码记录下来。
 一, juc 并发工具包
 java.util.concurrent.tools 并发包里的一些有工具类,如：
 
-1) countDownLath.
-2) Semaphore.
-3) CyclicBarrier.
+1) countDownLath
+2) Semaphore
+3) CyclicBarrier
 
 java.util.tools 里面有意思的集合:
 
-1) ConcurrentSkipListMap 跳表等.
+1) ConcurrentSkipListMap 跳表等
 
 二： 死锁
 列举了死锁的几种场景,并编码实现解决
