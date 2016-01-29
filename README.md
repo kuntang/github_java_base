@@ -16,7 +16,15 @@ java.util.tools 里面有意思的集合:
 1) ConcurrentSkipListMap 跳表等
 
 二： 死锁
-列举了死锁的几种场景,并编码实现解决
+
+列举了死锁的几种场景,并编码实现解决,如：
+
+1）静态死锁
+
+2）协作间的死锁 
+
+3）饥饿死锁
+
 
 三： jvm的calssLoader
 实现了一个自己的ClassLoader，可以实现动态加载类的功能.
