@@ -35,9 +35,11 @@ java.util.tools 里面有意思的集合:
 
   实现了Server 和 client的数据传输代码,利用linux 底层的sendFile特性,实现零拷贝传输数据,非常cool.
   
-  遇到的问题：多文件和大文件的数据传输过程中，偶尔会引发传输中断。解决方案是FileChannel.read(ByteBuffer)时，可能会读取不到完整的ByteBu
+  遇到的问题：多文件和大文件的数据传输过程中，偶尔会引发传输中断。
   
-  ffer内容，通过fileMetaBuffer.remaining() 判断并循环读，直到读满整个buffer为止才返回即可解决上述问题。
+  解决方案： FileChannel.read(ByteBuffer)时，可能会读取不到完整的ByteBuffer内容，通过fileMetaBuffer.remaining() 
+
+  判断并循环读，直到读满整个buffer为止才返回即可解决上述问题。
   
 五：java泛型特性的探索研究
 
