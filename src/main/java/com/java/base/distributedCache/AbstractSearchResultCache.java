@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 整个搜索的缓存,包括(atw,atew等结果)
+ * 整个搜索的缓存
  *
  * @author 黑伯
  * @version 1.0
@@ -85,9 +85,7 @@ public abstract class AbstractSearchResultCache<OPT,V extends Serializable>{
         }
     }
 
-//    // 获取分布式锁 的value
-//    public abstract Result<DataEntry> getLockKey(String key);
-
+    // 获取分布式锁
     public abstract boolean getDistributeLock(String key);
 
     protected abstract V getValudDO(String key);
@@ -103,18 +101,14 @@ public abstract class AbstractSearchResultCache<OPT,V extends Serializable>{
         return "distribute-" + buildInnerKey(option, extra);
     }
 
-//    // 抢(初始化)分布式锁的key
-//    public abstract Result<DataEntry> initLockKey(String key);
 
-    // 是否过期
+    // 缓存是否过期
     public abstract boolean isExpire(V value);
 
     public abstract void put(OPT option, V v);
 
     /**
      * 提前放哨兵时间，单位秒
-     *
-     * @return
      */
     protected int getTimeDelta() {
         return dkTimeoutSec;
