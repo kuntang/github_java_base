@@ -1,0 +1,10 @@
+输出:
+wait thread run
+notify thread run
+notify sleep 10 seconds and exit
+wait exit
+
+结论：
+(1) notify(默认是)是需要退出同步块才执行的唤醒操作。hotspot里真正的实现是退出同步块的时候才会去真正唤醒对应的线程
+(2) wait 期间 把lock锁释放了, notify线程才能进入到synchronized块
+(3) 线程从wait状态恢复出来的时候，要先获取锁，然后再退出同步块.(从notify sleep期间,wait()一直未执行后面的代码可以看出).
